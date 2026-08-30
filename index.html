@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Planner – a modern productivity dashboard built with HTML, CSS and JavaScript.">
+  <title>Planner — Productivity Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section id="welcomeScreen" class="welcome-screen">
+    <div class="welcome-card">
+      <div class="welcome-logo">P</div>
+      <span class="welcome-kicker">PLANNER</span>
+      <h1>Organisiere deinen Tag.</h1>
+      <p>Ein einfacher Workspace für Aufgaben, Fokus und Fortschritt.</p>
+      <form id="welcomeForm">
+        <label>Wie heißt du?
+          <input id="userName" type="text" maxlength="30" autocomplete="name" placeholder="Dein Name" required>
+        </label>
+        <button class="primary-btn" type="submit">Workspace öffnen →</button>
+      </form>
+      <small>Deine Daten bleiben lokal in diesem Browser.</small>
+    </div>
+  </section>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">P</div>
+        <div><strong>Planner</strong><span>Focus & organize</span></div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-view="tasks"><span>✓</span> Aufgaben</button>
+        <button class="nav-item" data-view="calendar"><span>▦</span> Kalender</button>
+        <button class="nav-item" data-view="focus"><span>◷</span> Fokus</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="progress-card">
+          <div class="progress-head"><span>Wochenziel</span><strong id="weeklyPercent">0%</strong></div>
+          <div class="progress-track"><div id="weeklyProgress" class="progress-fill"></div></div>
+          <small id="weeklyLabel">0 von 8 Aufgaben erledigt</small>
+        </div>
+        <button id="themeToggle" class="theme-btn">☾ <span>Dark Mode</span></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="dateLabel"></p>
+          <h1 id="viewTitle">Guten Morgen <span id="userGreeting">👋</span></h1>
+        </div>
+        <button id="quickAdd" class="primary-btn">＋ Neue Aufgabe</button>
+      </header>
+
+      <section id="dashboardView" class="view">
+        <div class="stats-grid">
+          <article class="stat-card"><span class="stat-icon purple">✓</span><div><span>Erledigt</span><strong id="doneCount">0</strong><small>Aufgaben insgesamt</small></div></article>
+          <article class="stat-card"><span class="stat-icon blue">◷</span><div><span>Heute fällig</span><strong id="todayCount">0</strong><small>Priorität für heute</small></div></article>
+          <article class="stat-card"><span class="stat-icon green">↗</span><div><span>Produktivität</span><strong id="productivity">0%</strong><small>Erledigungsrate</small></div></article>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel">
+            <div class="panel-head"><div><h2>Heutige Aufgaben</h2><p>Was steht heute an?</p></div><button class="text-btn" data-view-link="tasks">Alle ansehen →</button></div>
+            <div id="todayTasks" class="task-list"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><div><h2>Diese Woche</h2><p>Dein Fortschritt</p></div></div>
+            <div class="week-chart" id="weekChart"></div>
+          </section>
+        </div>
+
+        <section class="panel quote-panel">
+          <div class="quote-mark">“</div>
+          <div><p id="quote">Small steps every day.</p><small>— Planner mindset</small></div>
+        </section>
+      </section>
+
+      <section id="tasksView" class="view hidden">
+        <section class="panel">
+          <div class="panel-head">
+            <div><h2>Aufgaben</h2><p>Verwalte deine To-dos an einem Ort.</p></div>
+            <div class="filters">
+              <button class="filter active" data-filter="all">Alle</button>
+              <button class="filter" data-filter="open">Offen</button>
+              <button class="filter" data-filter="done">Erledigt</button>
+            </div>
+          </div>
+          <div id="allTasks" class="task-list spacious"></div>
+        </section>
+      </section>
+
+      <section id="calendarView" class="view hidden">
+        <section class="panel">
+          <div class="calendar-head"><button id="prevMonth">‹</button><h2 id="monthTitle"></h2><button id="nextMonth">›</button></div>
+          <div class="calendar-weekdays"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span></div>
+          <div id="calendarGrid" class="calendar-grid"></div>
+        </section>
+      </section>
+
+      <section id="focusView" class="view hidden">
+        <section class="focus-layout">
+          <div class="panel focus-card">
+            <span class="focus-label">FOCUS SESSION</span>
+            <div id="timer" class="timer">25:00</div>
+            <p id="timerStatus">Bereit für eine fokussierte Session?</p>
+            <div class="timer-actions"><button id="startTimer" class="primary-btn">Start</button><button id="resetTimer" class="secondary-btn">Reset</button></div>
+            <div class="timer-modes"><button class="mode active" data-minutes="25">25 min</button><button class="mode" data-minutes="5">5 min</button><button class="mode" data-minutes="50">50 min</button></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><div><h2>Fokus-Tipp</h2><p>Mach Ablenkung schwer.</p></div></div>
+            <ul class="tip-list"><li><span>01</span> Eine Aufgabe auswählen</li><li><span>02</span> Benachrichtigungen ausschalten</li><li><span>03</span> Timer starten</li><li><span>04</span> Danach bewusst Pause machen</li></ul>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="taskDialog">
+    <form id="taskForm" method="dialog">
+      <div class="dialog-head"><div><h2>Neue Aufgabe</h2><p>Füge etwas hinzu, das du erledigen möchtest.</p></div><button type="button" id="closeDialog" class="icon-btn">×</button></div>
+      <label>Titel<input id="taskTitle" required maxlength="80" placeholder="z. B. CS50 Lernmodul abschließen"></label>
+      <div class="form-row">
+        <label>Datum<input id="taskDate" type="date" required></label>
+        <label>Priorität<select id="taskPriority"><option value="low">Niedrig</option><option value="medium" selected>Mittel</option><option value="high">Hoch</option></select></label>
+      </div>
+      <label>Kategorie<select id="taskCategory"><option>Study</option><option>Work</option><option>Personal</option><option>Other</option></select></label>
+      <div class="dialog-actions"><button type="button" id="cancelDialog" class="secondary-btn">Abbrechen</button><button class="primary-btn">Aufgabe erstellen</button></div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
