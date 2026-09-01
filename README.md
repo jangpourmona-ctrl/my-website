@@ -1,4 +1,4 @@
-# Digital Transformation Case Study
+# Fallstudie zur digitalen Transformation
 
 **Portfolio Project | Digitalisierung · AI · Prozessoptimierung**
 
