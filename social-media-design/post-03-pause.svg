@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+<rect width="1080" height="1080" fill="#F5EFE6"/>
+<circle cx="850" cy="180" r="190" fill="#E8C46A" opacity="0.75"/>
+<circle cx="190" cy="900" r="140" fill="#E8C46A" opacity="0.65"/>
+<rect x="110" y="120" width="860" height="840" rx="45" fill="none" stroke="#3B2F2F" stroke-width="5"/>
+<text x="150" y="235" font-family="Arial, sans-serif" font-size="34" fill="#3B2F2F" letter-spacing="4">CAFÉ MORGEN</text>
+<text x="150" y="500" font-family="Georgia, serif" font-size="82" font-weight="bold" fill="#3B2F2F">Zeit für eine Pause</text>
+<text x="150" y="585" font-family="Arial, sans-serif" font-size="42" fill="#3B2F2F">Dein Moment. Dein Kaffee.</text>
+<line x1="150" y1="650" x2="650" y2="650" stroke="#3B2F2F" stroke-width="5"/>
+<text x="150" y="735" font-family="Arial, sans-serif" font-size="30" fill="#3B2F2F">Kaffee · Kuchen · Pause</text>
+</svg>

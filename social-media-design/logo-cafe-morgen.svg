@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+<rect width="900" height="500" fill="#F5EFE6"/>
+<circle cx="450" cy="205" r="105" fill="#A8B5A2"/>
+<path d="M385 205h130v65c0 42-29 70-65 70s-65-28-65-70z" fill="#3B2F2F"/>
+<path d="M515 220h28c34 0 48 23 48 47s-14 47-48 47h-28" fill="none" stroke="#3B2F2F" stroke-width="18"/>
+<path d="M415 165c-18-28 12-39 0-66M465 165c-18-28 12-39 0-66" fill="none" stroke="#3B2F2F" stroke-width="10" stroke-linecap="round"/>
+<text x="450" y="405" text-anchor="middle" font-family="Georgia, serif" font-size="58" fill="#3B2F2F">Café Morgen</text>
+</svg>
