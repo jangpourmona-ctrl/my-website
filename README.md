@@ -19,7 +19,7 @@ Themen:
 - Backup
 - IT-Sicherheit
 
-[Zum Projekt](./it-infrastructure-concept/)
+[Zum Projekt](planner)
 
 ---
 
