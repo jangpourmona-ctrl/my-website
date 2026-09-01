@@ -49,7 +49,7 @@ Ein einfaches Web-Projekt mit grundlegenden HTML-, CSS- und JavaScript-Übungen.
 
 Einfache Übungen zur Projektplanung und Organisation.
 
-[Zum Projekt](./planner/)
+[Zum Projekt](https://jangpourmona-ctrl.github.io/my-website/planner/)
 
 ---
 
